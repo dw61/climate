@@ -4,6 +4,8 @@ https://www.youtube.com/watch?v=ll5s3vlVlmA
 
 # Visualization of the [Comparative Climatic Data](https://www.ncei.noaa.gov/products/land-based-station/comparative-climatic-data)
 
+A climate analysis of US cities. I live in Charlottesville, VA. It's cloudy all the time, but I love sunny days. I wonder which us city has the best climate according to my preference, so I visualized the Comparative Climate Data. Here's the results.
+
 # Usage
 
 ```sh
@@ -11,7 +13,7 @@ python locate.py
 python visualize.py
 ```
 
-Generate images at `figures` folder
+Generate images are at `figures` folder.
 
 # Results
 
