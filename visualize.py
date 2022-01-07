@@ -3,9 +3,10 @@ import json
 import geopandas as gpd
 import matplotlib.pyplot as plt
 plt.rcParams["figure.figsize"] = (16, 9)
-plt.rcParams["figure.dpi"] = 240
-plt.rcParams['figure.facecolor'] = 'pink'
-plt.rcParams['axes.facecolor'] = 'pink'
+plt.rcParams["figure.dpi"] = 48
+plt.style.use('dark_background')
+# plt.rcParams['figure.facecolor'] = 'black'
+# plt.rcParams['axes.facecolor'] = 'black'
 
 locations = {}
 with open("locations.json", "r") as f:
@@ -13,7 +14,7 @@ with open("locations.json", "r") as f:
 
 countries = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
 usa = countries[countries["name"]=="United States of America"]
-bbox = {"boxstyle":"round", "color":"white", "alpha":0.4}
+bbox = {"boxstyle":"round", "color":"black", "alpha":0.4}
 
 def plot(datafile, figurefile, title, cmap="viridis_r"):
 
@@ -34,21 +35,22 @@ def plot(datafile, figurefile, title, cmap="viridis_r"):
             latitudes.append(location[3])
             colors.append(float(climate[-1]))
 
-    usa.plot(color="lightblue")
-    plt.scatter(longitudes, latitudes, c=colors, cmap=cmap, s=200)
-    plt.annotate("New York", (-73.974304, 40.779249), ha="center", bbox=bbox)
-    plt.annotate("Los Angeles", (-118.242766, 34.053691), ha="center", bbox=bbox)
-    plt.annotate("Chicago", (-87.624421, 41.875562), ha="center", bbox=bbox)
-    plt.annotate("Houston", (-95.367697, 29.758938), ha="center", bbox=bbox)
-    plt.annotate("Seattle", (-122.330062, 47.603832), ha="center", bbox=bbox)
-    plt.annotate("Miami", (-80.19362, 25.774173), ha="center", bbox=bbox)
-    plt.annotate("Anchorage", (-149.894852, 61.216313), ha="center", bbox=bbox)
-    plt.annotate("Honolulu", (-157.855676, 21.304547), ha="center", bbox=bbox)
-    plt.colorbar()
-    plt.title(title)
-    plt.xlabel("Longitude")
-    plt.ylabel("Latitude")
-    plt.savefig(f"figures/{figurefile}", bbox_inches='tight')
+    fig, ax = plt.subplots(1, 1)
+    usa.plot(color="lightblue", ax=ax)
+    sp = ax.scatter(longitudes, latitudes, c=colors, cmap=cmap, s=200)
+    ax.annotate("New York", (-73.974304, 40.779249), ha="center", bbox=bbox)
+    ax.annotate("Los Angeles", (-118.242766, 34.053691), ha="center", bbox=bbox)
+    ax.annotate("Chicago", (-87.624421, 41.875562), ha="center", bbox=bbox)
+    ax.annotate("Houston", (-95.367697, 29.758938), ha="center", bbox=bbox)
+    ax.annotate("Seattle", (-122.330062, 47.603832), ha="center", bbox=bbox)
+    ax.annotate("Miami", (-80.19362, 25.774173), ha="center", bbox=bbox)
+    ax.annotate("Anchorage", (-149.894852, 61.216313), ha="center", bbox=bbox)
+    ax.annotate("Honolulu", (-157.855676, 21.304547), ha="center", bbox=bbox)
+    fig.colorbar(sp)
+    ax.set_title(title)
+    ax.set_xlabel("Longitude")
+    ax.set_ylabel("Latitude")
+    fig.savefig(f"figures/{figurefile}")
 
 plot("clpcdy18.dat", "1_cloud.png", "Number of Cloudy Days in a Year")
 plot("prge0118.dat", "2_rain.png", "Number of Precipitation Days in a Year")
