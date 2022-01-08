@@ -13,8 +13,10 @@ locations = {}
 with open("locations.json", "r") as f:
     locations = json.load(f)
 
-countries = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
-usa = countries[countries["name"]=="United States of America"]
+# countries = gpd.read_file(gpd.datasets.get_path("naturalearth_lowres"))
+# usa = countries[countries["name"]=="United States of America"]
+usa = gpd.read_file("usa/usa-states-census-2014.shp")
+usa.to_crs("EPSG:3395")
 annotation = {"ha":"center", "bbox":{"boxstyle":"round", "color":"black", "alpha":0.4}}
 
 def plot(datafile, figurefile, title, unit="", cmap="viridis_r"):
@@ -36,8 +38,12 @@ def plot(datafile, figurefile, title, unit="", cmap="viridis_r"):
             latitudes.append(location[3])
             colors.append(float(climate[-1]))
 
-    usa.plot(color="lightblue")
-    plt.scatter(longitudes, latitudes, c=colors, cmap=cmap, s=200)
+    usa.plot(color="lightblue", edgecolor="black", linewidth=0.3)
+    plt.scatter(longitudes, latitudes, c=colors, cmap=cmap, s=600)
+    cbar = plt.colorbar(format=lambda x, _ : f"{x:0g} {unit}", shrink=0.80, pad=0.02)
+    cbar.outline.set_visible(False)
+    cbar.ax.locator_params(nbins=6)
+
     plt.annotate("New York", (-73.974304, 40.779249), **annotation)
     plt.annotate("Los Angeles", (-118.242766, 34.053691), **annotation)
     plt.annotate("Chicago", (-87.624421, 41.875562), **annotation)
@@ -46,9 +52,6 @@ def plot(datafile, figurefile, title, unit="", cmap="viridis_r"):
     plt.annotate("Miami", (-80.19362, 25.774173), **annotation)
     plt.annotate("Anchorage", (-149.894852, 61.216313), **annotation)
     plt.annotate("Honolulu", (-157.855676, 21.304547), **annotation)
-
-    cbar = plt.colorbar(format=lambda x, _ : f"{x:0g} {unit}")
-    cbar.ax.locator_params(nbins=6)
     plt.title(title)
     plt.xlabel("Longitude")
     plt.ylabel("Latitude")

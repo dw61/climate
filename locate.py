@@ -22,6 +22,9 @@ def locate(filename, header=1):
         city = city.replace(" AP", "").strip()
         state = state.strip()
         pbar.set_description_str(f"{city}, {state}")
+        if state in ["AK", "HI", "PC"]:
+            failed.add(zipcode)
+            continue
 
         location = geolocator.geocode(f"{city}, {state}", timeout=3)
         if location and "United States" in location.address:
