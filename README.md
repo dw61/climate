@@ -1,10 +1,10 @@
-# todo
-
-https://www.youtube.com/watch?v=ll5s3vlVlmA
-
-# Visualization of the [Comparative Climatic Data](https://www.ncei.noaa.gov/products/land-based-station/comparative-climatic-data)
+## Visualization of the Comparative Climatic Data
 
 A climate analysis of US cities. I live in Charlottesville, VA. It's cloudy all the time, but I love sunny days. I wonder which us city has the best climate according to my preference, so I visualized the Comparative Climate Data. Here's the results.
+
+[Comparative Climatic Data](https://www.ncei.noaa.gov/products/land-based-station/comparative-climatic-data)
+
+Also take a look at the `artistic` branch!
 
 # Usage
 
