@@ -51,6 +51,8 @@ Generate images are at `figures` folder.
 
 [Stamen Watercolor Map](http://maps.stamen.com/watercolor/)
 
+Art supervisor: tbZ
+
 Nuvole Bianche by Ludovico Einaudi
 
 Youtube Audio Library
