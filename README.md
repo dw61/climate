@@ -2,6 +2,8 @@
 
 I live in Charlottesville, VA. It's cloudy all the time, but I love sunny days. I wonder which us city has the best climate according to my preference, so I visualized the [Comparative Climatic Data](https://www.ncei.noaa.gov/products/land-based-station/comparative-climatic-data).
 
+[YouTube Video](https://youtu.be/2L0IhXjtXRs)
+
 # Usage
 
 ```sh
