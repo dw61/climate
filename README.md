@@ -15,33 +15,33 @@ Generate images are at `figures` folder.
 
 # Results
 
-![](figures/1_cloud.png)
+![](artistic/1_cloud.jpg)
 
-![](figures/2_rain.png)
+![](artistic/2_rain.jpg)
 
-![](figures/3_snow.png)
+![](artistic/3_snow.jpg)
 
-![](figures/4_humidity.png)
+![](artistic/4_humidity.jpg)
 
-![](figures/5_wind.png)
+![](artistic/5_wind.jpg)
 
-![](figures/6_cold.png)
+![](artistic/6_cold.jpg)
 
-![](figures/7_hot.png)
+![](artistic/7_hot.jpg)
 
-![](figures/8_record_high.png)
+![](artistic/8_record_high.jpg)
 
-![](figures/9_mean_maximum.png)
+![](artistic/9_mean_maximum.jpg)
 
-![](figures/10_average.png)
+![](artistic/10_average.jpg)
 
-![](figures/11_mean_minimum.png)
+![](artistic/11_mean_minimum.jpg)
 
-![](figures/12_record_low.png)
+![](artistic/12_record_low.jpg)
 
-![](figures/13_sunshine.png)
+![](artistic/13_sunshine.jpg)
 
-![](figures/14_precipitation.png)
+![](artistic/14_precipitation.jpg)
 
 # Acknowledgements
 
